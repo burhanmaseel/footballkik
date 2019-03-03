@@ -4,7 +4,7 @@
   "description": "A chat application built with node, mongodb, express and socket.io",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nodemon server"
   },
   "repository": {
     "type": "git",

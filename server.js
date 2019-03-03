@@ -7,7 +7,11 @@ const validator = require('express-validator');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose');
+<<<<<<< HEAD
 const flash = require('flash');
+=======
+const flash = require('connect-flash');
+>>>>>>> 34a59a0f4f205246e7f91d3aa5c21b4805b82b2d
 const passport = require('passport');
 
 
@@ -20,6 +24,9 @@ container.resolve(function(users){
     mongoose.Promise = global.Promise;
     mongoose.connect('mongodb://localhost/fooballkik', {useMongoClient : true});
     
+    mongoose.Promise = global.Promise;
+    mongoose.connect('mongodb://localhost/footballkik', {useMongoClient: true});
+
     const app = SetupExpress();
 
     function SetupExpress(){
@@ -48,17 +55,28 @@ container.resolve(function(users){
 
         app.use(validator());
         app.use(session({
+<<<<<<< HEAD
             secret : 'thisisasecretkey',
             resave : true,
             saveInitialized : true,
             store : new MongoStore({mongooseConnection: mongoose.connection})
         }))
+=======
+            secret: 'thisissecretkey',
+            resave: true,
+            saveInitialized: true,
+            store: new MongoStore({mongooseConnection: mongoose.connection})
+        }));
+>>>>>>> 34a59a0f4f205246e7f91d3aa5c21b4805b82b2d
 
         app.use(flash());
 
         app.use(passport.initialize());
         app.use(passport.session());
+<<<<<<< HEAD
 
+=======
+>>>>>>> 34a59a0f4f205246e7f91d3aa5c21b4805b82b2d
     }
 
 });
